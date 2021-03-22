@@ -1,19 +1,25 @@
 <mat-card>
-    <mat-form-field>
-        <input type="text" matInput placeholder="ID" [(ngModel)]="id" />
-    </mat-form-field>
+    <form (submit)="onAdicionarLivro(livroForm)" #livroForm="ngForm">
+        <mat-form-field>
+            <input required type="text" matInput placeholder="ID" name="id" ngModel #id="ngModel" />
+            <mat-error *ngIf="id.invalid">Digite um id válido</mat-error>
+        </mat-form-field>
 
-    <mat-form-field>
-        <input type="text" matInput placeholder="Título" [(ngModel)]="titulo" />
-    </mat-form-field>
+        <mat-form-field>
+            <input required minlength="4" type="text" matInput placeholder="Título" name="titulo" ngModel #titulo="ngModel" />
+            <mat-error *ngIf="titulo.invalid">Digite um titulo válido</mat-error>
+        </mat-form-field>
 
-    <mat-form-field>
-        <input type="text" matInput placeholder="Autor" [(ngModel)]="autor" />
-    </mat-form-field>
+        <mat-form-field>
+            <input required minlength="4" type="text" matInput placeholder="Autor" name="autor" ngModel #autor="ngModel" />
+            <mat-error *ngIf="autor.invalid">Digite um autor válido</mat-error>
+        </mat-form-field>
 
-    <mat-form-field>
-        <input type="text" matInput placeholder="Números de páginas" [(ngModel)]="numpaginas" />
-    </mat-form-field>
+        <mat-form-field>
+            <input required type="text" matInput placeholder="Números de páginas" name="numpaginas" ngModel #numpaginas="ngModel" />
+            <mat-error *ngIf="numpaginas.invalid">Digite o numero de paginas válido</mat-error>
+        </mat-form-field>
 
-    <button color="primary" mat-raised-button (click)="onAdicionarLivro()">Inserir Livros</button>
+        <button color="primary" mat-raised-button>Inserir Livros</button>
+    </form>
 </mat-card>
