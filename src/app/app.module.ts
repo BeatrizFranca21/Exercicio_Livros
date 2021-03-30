@@ -8,12 +8,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { HttpClientModule }  from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LivrosInserirComponent } from './livros/livros-inserir/livros-inserir.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { LivroListaComponent } from './livros/livro-lista/livro-lista.component';
-
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { LivroListaComponent } from './livros/livro-lista/livro-lista.component'
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

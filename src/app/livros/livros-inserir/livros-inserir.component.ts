@@ -19,11 +19,11 @@ constructor(private livroService: LivroService){
 
       if(form.invalid){return;}
 
-    this.livroService.adicionarLivro(
-       form.value.id,
-       form.value.titulo,
-       form.value.autor,
-       form.value.numpaginas
+      this.livroService.adicionarLivro(
+      form.value.id,
+      form.value.titulo,
+      form.value.autor,
+      form.value.numpaginas
       );
        form.resetForm();
 
