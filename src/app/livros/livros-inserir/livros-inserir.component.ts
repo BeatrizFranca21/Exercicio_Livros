@@ -17,7 +17,7 @@ constructor(private livroService: LivroService){
 
     onAdicionarLivro(form: NgForm){
 
-      if(form.invalid){return;}
+      if(form.invalid) return;
 
       this.livroService.adicionarLivro(
       form.value.id,
@@ -26,7 +26,6 @@ constructor(private livroService: LivroService){
       form.value.numpaginas
       );
        form.resetForm();
-
       }
 
 }

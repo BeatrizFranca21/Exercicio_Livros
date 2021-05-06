@@ -15,6 +15,8 @@ export class LivroListaComponent implements OnInit, OnDestroy {
 
   constructor(public livroService: LivroService) { }
 
+
+
   ngOnInit(): void {
     this.livroService.getLivros();
     this.livroService.getListaDeLivrosAtualizadaObservable()
@@ -22,8 +24,15 @@ export class LivroListaComponent implements OnInit, OnDestroy {
     this.livros = livros;
   })
   }
+
+  onDelete(id: string): void{
+    this.livroService.removerLivro(id);
+   }
+
   ngOnDestroy():void{
       this.livrosSubscription.unsubscribe();
   }
+
+
 
 }
