@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class LivroListaComponent implements OnInit, OnDestroy {
   livros: Livro[] = [];
-
+  public estaCarregando: boolean = false;
   private livrosSubscription: Subscription = new Subscription;
 
   constructor(public livroService: LivroService) { }
@@ -18,9 +18,11 @@ export class LivroListaComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
+    this.estaCarregando = true;
     this.livroService.getLivros();
     this.livroService.getListaDeLivrosAtualizadaObservable()
     .subscribe((livros: Livro[]) => {
+    this.estaCarregando = false;
     this.livros = livros;
   })
   }

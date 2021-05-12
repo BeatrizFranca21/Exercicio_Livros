@@ -1,5 +1,6 @@
 <mat-card>
-    <form (submit)="onAdicionarLivro(livroForm)" #livroForm="ngForm">
+    <mat-spinner *ngIf="estaCarregando"></mat-spinner>
+    <form *ngIf="!estaCarregando" (submit)="onSalvarLivro(livroForm)" #livroForm="ngForm">
         <mat-form-field>
             <input required type="text" matInput placeholder="ID" name="id" ngModel #id="ngModel" />
             <mat-error *ngIf="id.invalid">Digite um id válido</mat-error>
@@ -20,6 +21,6 @@
             <mat-error *ngIf="numpaginas.invalid">Digite o numero de paginas válido</mat-error>
         </mat-form-field>
 
-        <button color="primary" mat-raised-button>Inserir Livros</button>
+        <button color="accent" mat-raised-button>Salvar Livros</button>
     </form>
 </mat-card>
