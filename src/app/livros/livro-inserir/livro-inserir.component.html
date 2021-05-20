@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-spinner *ngIf="estaCarregando"></mat-spinner>
+    <form [formGroup]="form" *ngIf="!estaCarregando" (submit)="onSalvarLivro()">
+        <mat-form-field>
+            <input type="text" matInput placeholder="Titulo" name="titulo" required minlength="4" formControlName="titulo">
+            <mat-error *ngIf="form.get('titulo').invalid">Digite um titulo válido</mat-error>
+        </mat-form-field>
+        <div>
+            <button mat-stroked-button type="button" (click)="selecionaArquivo.click()">Selecionar imagem</button>
+            <input type="file" (change)="onImagemSelecionada($event)" #selecionaArquivo>
+        </div>
+        <div class="imagem-preview">
+            <img [src]="previewImagem" [alt]="form.value.nome" *ngIf="previewImagem && previewImagem != '' && form.get('imagem').valid">
+        </div>
+
+        <mat-form-field>
+            <input type="text" matInput placeholder="Autor" name="autor" required formControlName="autor">
+            <mat-error *ngIf="form.get('autor').invalid">Digite um autor válido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Numero de Páginas" name="numpaginas" required formControlName="numpaginas">
+            <mat-error *ngIf="form.get('numpaginas').invalid"></mat-error>
+        </mat-form-field>
+        <button color="accent" mat-raised-button>Salvar Livro</button>
+    </form>
+</mat-card>

@@ -1,38 +1,46 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MatInputModule } from '@angular/material/input';
-import { MatCardModule } from '@angular/material/card';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { HttpClientModule }  from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+
+import { LivroInserirComponent} from "./livros/livro-inserir/livro-inserir.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'
+
 
 import { AppComponent } from './app.component';
-import { LivrosInserirComponent } from './livros/livros-inserir/livros-inserir.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { LivroListaComponent } from './livros/livro-lista/livro-lista.component';
 
 @NgModule({
   declarations: [
-    AppComponent, LivrosInserirComponent, CabecalhoComponent, LivroListaComponent
+    AppComponent,
+    LivroInserirComponent,
+    CabecalhoComponent,
+    LivroListaComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
-    FormsModule,
+    //FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatInputModule,
-    MatCardModule,
+    HttpClientModule,
     MatButtonModule,
-    MatToolbarModule,
+    MatCardModule,
     MatExpansionModule,
+    MatInputModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    MatToolbarModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

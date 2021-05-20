@@ -6,3 +6,13 @@
 mat-spinner {
     margin: auto;
 }
+
+.livro-imagem {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.livro-imagem>img {
+    max-width: 50%;
+}

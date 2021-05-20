@@ -1,8 +1,7 @@
-
-
-export interface Livro {
+export interface Livro{
   id: string;
-  titulo: string;
-  autor: string;
-  numpaginas: string;
-  }
+  titulo: string|any;
+  autor: string|any;
+  numpaginas: string|any;
+  imagemURL: string;
+}

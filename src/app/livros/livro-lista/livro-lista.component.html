@@ -1,18 +1,18 @@
-<mat-spinner *ngif="estaCarregando"></mat-spinner>
+<mat-spinner *ngIf="estaCarregando"></mat-spinner>
 <mat-accordion *ngIf="livros.length > 0 && !estaCarregando">
-    <mat-expansion-panel *ngFor="let livro of livros">
+    <mat-expansion-panel *ngFor="let li of livros">
         <mat-expansion-panel-header>
-            id: {{livro.id}}
+            Titulo: {{li.titulo}}
         </mat-expansion-panel-header>
-        <p>titulo:{{livro.titulo}}</p>
-        <p>autor:{{livro.autor}}</p>
-        <p>numpaginas:{{livro.numpaginas}}</p>
+        <div class="livro-imagem">
+            <img [src]="li.imagemURL" [alt]="li.titulo">
+        </div>
+        <p>autor: {{li.autor}}</p>
+        <p>numpaginas: {{li.numpaginas}}</p>
         <mat-action-row>
-            <button mat-button color="primary" [routerLink]="['/editar', livro.id]">EDITAR</button>
-            <button mat-button color="warn" (click)="onDelete(livro.id)">REMOVER</button>
+            <button mat-button color="primary" [routerLink]="['/editar', li.id]">EDITAR</button>
+            <button mat-button color="warn" (click)="onDelete(li.id)">REMOVER</button>
         </mat-action-row>
     </mat-expansion-panel>
 </mat-accordion>
-<p class="mat-body-1" style="text-align: center;" *ngIf="livros.length <= 0 && !estaCarregando">
-    Nenhum livro cadastrado
-</p>
+<p class="mat-body-1" style="text-align:center;" *ngIf="livros.length <= 0 && !estaCarregando">Nenhum livro cadastrado</p>
